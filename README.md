@@ -6,9 +6,7 @@ unicode-supported font and you're golden.
 
 Implemented in Node.JS.
 
----
-
-Example *.bash_prompt* file:
+## Example *.bash_prompt*
 
 ~~~bash
 #!/bin/bash
