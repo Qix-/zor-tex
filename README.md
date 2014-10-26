@@ -37,3 +37,6 @@ function git_prompt() {
 # Make sure to change the path below
 export PS1='$(node /path/to/zor-tex/zor-tex.js "$(echo $USER | tr '[:lower:]' '[:upper:]')" "\w" "$(git_prompt)" "$(date +"%a %b %d, %R")")\n$ '
 ~~~
+
+## Screenshot
+![zor-tex screenshot](http://i.imgur.com/D31yvJy.png?1)
