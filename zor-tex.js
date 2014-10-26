@@ -7,6 +7,9 @@
 (function() {
   'use strict';
 
+  // Get console width (can be modified by a cmd-arg)
+  var consoleWidth = process.stdout.columns;
+
   // Setup our theme.
   var theme = {
       'rootBG': '48;5;214'
@@ -110,7 +113,6 @@
   // Clips segments given the console width
   function clipSegments(segments) {
     segments.reverse();
-    var twidth = process.stdout.columns;
 
     var approved = [];
     var totalWidth = 0;
@@ -118,10 +120,17 @@
       var segment;
       do {
        segment = segments.pop();
-      } while(segment.trim().length === 0);
+      } while((segment = segment.trim()).length === 0);
+
+      // Is it a width specifier?
+      var matches;
+      if ((matches = /^\+(\d+)$/.exec(segment)) !== null) {
+        consoleWidth = parseInt(matches[1]);
+        continue;
+      }
 
       totalWidth += segment.length + 3;
-      if (totalWidth > twidth) {
+      if (totalWidth > consoleWidth) {
         break;
       } else {
         approved.push(segment);
