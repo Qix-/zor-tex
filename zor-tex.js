@@ -13,7 +13,7 @@
   // Setup our theme.
   var theme = {
       'rootBG': '48;5;214'
-    , 'rootFG': '38;5;130'
+    , 'rootFG': '1;38;5;130'
     , 'pathBG': '48;5;235'
     , 'pathFG': '38;5;249'
     , 'restBG': '48;5;233'
