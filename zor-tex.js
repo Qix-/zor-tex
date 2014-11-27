@@ -11,16 +11,23 @@
   var consoleWidth = process.stdout.columns;
 
   // Setup our theme.
-  var theme = {
-      'rootBG': '48;5;214'
-    , 'rootFG': '1;38;5;130'
-    , 'pathBG': '48;5;235'
-    , 'pathFG': '38;5;249'
-    , 'restBG': '48;5;233'
-    , 'restFG': '38;5;238'
-    , 'connectorLeft': '\u25b6'
-    , 'connectorLeftRest': '\u3009'
-  };
+  var theme;
+  try {
+    theme = JSON.parse(
+        require('fs').readFileSync(
+          process.env['HOME'] + '/.zortheme'));
+  } catch (e) {
+    theme = {
+        'rootBG': '48;5;214'
+      , 'rootFG': '1;38;5;130'
+      , 'pathBG': '48;5;235'
+      , 'pathFG': '38;5;249'
+      , 'restBG': '48;5;233'
+      , 'restFG': '38;5;238'
+      , 'connectorLeft': '\u25b6'
+      , 'connectorLeftRest': '\u3009'
+    };
+  }
 
   // Setup segmentation function
   function genLeftSegment(segments) {
