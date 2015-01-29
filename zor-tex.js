@@ -31,7 +31,7 @@
 
   // Setup segmentation function
   function genLeftSegment(segments) {
-    var result = '\n';
+    var result = '\x1b[0G\x1b[0J';
     for (var i = 0, len = segments.length; i < len; i++) {
       var last = i+1 == len;
       var segment = ' ' + segments[i] + ' ';
